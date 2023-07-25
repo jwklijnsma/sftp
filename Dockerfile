@@ -5,6 +5,7 @@ MAINTAINER Adrian Dvergsdal [atmoz.net]
 # - Install packages
 # - OpenSSH needs /var/run/sshd to run
 # - Remove generic host keys, entrypoint generates unique keys
+RUN apt-get install wget -y
 RUN wget https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg /tmp/
 RUN mv /tmp/proxmox-release-bullseye.gpg /etc/apt/trusted.gpg.d/proxmox-release-bullseye.gpg
 RUN echo deb http://download.proxmox.com/debian/pbs-client bullseye main > /etc/apt/sources.list.d/pbs-client.list
