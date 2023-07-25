@@ -1,4 +1,4 @@
-inFROM debian:bullseye
+FROM debian:bullseye
 MAINTAINER Adrian Dvergsdal [atmoz.net]
 
 # Steps done in one RUN layer:
