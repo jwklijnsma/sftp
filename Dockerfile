@@ -11,7 +11,7 @@ RUN apt-get -y dist-upgrade
 RUN rm -rf /var/lib/apt/lists/* 
 RUN mkdir -p /var/run/sshd 
 RUN rm -f /etc/ssh/ssh_host_*key*
-RUN apt-get install -y wget    
+RUN apt-get install wget -y 
 RUN echo deb http://download.proxmox.com/debian/pbs-client bullseye main > /etc/apt/sources.list.d/pbs-client.list    
 RUN wget https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg /tmp/
 RUN mv /tmp/proxmox-release-bullseye.gpg /etc/apt/trusted.gpg.d/proxmox-release-bullseye.gpg
