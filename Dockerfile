@@ -5,8 +5,9 @@ MAINTAINER Adrian Dvergsdal [atmoz.net]
 # - Install packages
 # - OpenSSH needs /var/run/sshd to run
 # - Remove generic host keys, entrypoint generates unique keys
-ADD wget https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bullseye.gpg
-RUN  echo deb http://download.proxmox.com/debian/pbs-client bullseye main > /etc/apt/sources.list.d/pbs-client.list
+ADD wget https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg /tmp/
+RUN mv /tmp/proxmox-release-bullseye.gpg /etc/apt/trusted.gpg.d/proxmox-release-bullseye.gpg
+RUN echo deb http://download.proxmox.com/debian/pbs-client bullseye main > /etc/apt/sources.list.d/pbs-client.list
 RUN apt-get update && \
     apt-get -y dist-upgrade $$ \
     apt-get -y install openssh-server proxmox-backup-client && \
