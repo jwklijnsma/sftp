@@ -6,11 +6,11 @@ MAINTAINER Adrian Dvergsdal [atmoz.net]
 # - OpenSSH needs /var/run/sshd to run
 # - Remove generic host keys, entrypoint generates unique keys
 
-RUN apt-get update && \
-    apt-get -y dist-upgrade $$ \
-    rm -rf /var/lib/apt/lists/* && \
-    mkdir -p /var/run/sshd && \
-    rm -f /etc/ssh/ssh_host_*key*
+RUN apt-get update 
+RUN apt-get -y dist-upgrade 
+RUN rm -rf /var/lib/apt/lists/* 
+RUN mkdir -p /var/run/sshd 
+RUN rm -f /etc/ssh/ssh_host_*key*
 RUN apt-get install -y wget    
 RUN echo deb http://download.proxmox.com/debian/pbs-client bullseye main > /etc/apt/sources.list.d/pbs-client.list    
 RUN wget https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg /tmp/
