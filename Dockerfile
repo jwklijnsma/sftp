@@ -8,6 +8,7 @@ MAINTAINER Adrian Dvergsdal [atmoz.net]
 
 RUN apt-get update 
 RUN apt-get -y dist-upgrade 
+RUN apt-get -y install curl
 RUN rm -rf /var/lib/apt/lists/* 
 RUN mkdir -p /var/run/sshd 
 RUN rm -f /etc/ssh/ssh_host_*key*
